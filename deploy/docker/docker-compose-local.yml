@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  
+  easy-food-preparoentrega-db:
+    image: postgres:latest
+    container_name: easy-food-preparoentrega-db
+    environment:
+      POSTGRES_USER: acme
+      POSTGRES_PASSWORD: acme
+      POSTGRES_DB: easy-food-preparoentrega
+    ports:
+      - "5435:5432"
+    volumes:
+      - pgdata-preparoentrega:/var/lib/postgresql/data
+      - ../database/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  pgdata-preparoentrega:
