@@ -10,6 +10,5 @@ public interface IPedidoRepository : IRepository<Pedido>
     Task<IEnumerable<Pedido>> ObterPedidosEmAberto();
     void Criar(Pedido pedido);
     void Atualizar(Pedido pedido);
-    void Remover(Pedido pedido);
     Task<int> ObterProximoCodigo();
 }

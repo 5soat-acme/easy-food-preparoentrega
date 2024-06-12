@@ -16,11 +16,6 @@ public sealed class PedidoRepository : IPedidoRepository
 
     public IUnitOfWork UnitOfWork => _context;
 
-    public void Dispose()
-    {
-        _context.Dispose();
-    }
-
     public async Task<Pedido> ObterPedidoPorId(Guid id)
     {
         return await _context.Pedidos
@@ -52,11 +47,6 @@ public sealed class PedidoRepository : IPedidoRepository
     public void Atualizar(Pedido pedido)
     {
         _context.Pedidos.Update(pedido);
-    }
-
-    public void Remover(Pedido pedido)
-    {
-        _context.Pedidos.Remove(pedido);
     }
 
     public async Task<int> ObterProximoCodigo()
