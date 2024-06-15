@@ -21,7 +21,6 @@ public static class ApiConfig
         services.RegisterServicesPreparoEntrega(configuration);
 
         services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-        services.AddScoped<IUserApp, UserApp>();
         services.AddJwtConfiguration(configuration);
         services.AddMessageriaConfig(configuration);
         services.AddHostedService<PedidoRecebidoConsumer>();
