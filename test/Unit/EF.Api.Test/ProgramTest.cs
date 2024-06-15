@@ -1,6 +1,5 @@
 ﻿using EF.PreparoEntrega.Application.Events.Messages;
 using EF.PreparoEntrega.Application.UseCases.Interfaces;
-using EF.WebApi.Commons.Users;
 using FluentAssertions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Testing;

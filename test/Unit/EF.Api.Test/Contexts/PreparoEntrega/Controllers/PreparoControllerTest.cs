@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 using EF.PreparoEntrega.Application.DTOs.Responses;
 using FluentAssertions;
 using EF.PreparoEntrega.Domain.Models;
-using Microsoft.AspNetCore.Http.HttpResults;
 using EF.PreparoEntrega.Application.DTOs.Requests;
 using EF.Core.Commons.Communication;
 

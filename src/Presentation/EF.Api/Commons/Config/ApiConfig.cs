@@ -3,7 +3,6 @@ using EF.Api.Commons.Extensions;
 using EF.Api.Contexts.PreparoEntrega.Config;
 using EF.PreparoEntrega.Application.Events.Messages;
 using EF.WebApi.Commons.Identity;
-using EF.WebApi.Commons.Users;
 
 namespace EF.Api.Commons.Config;
 
