@@ -43,6 +43,21 @@ public class ConsultarPedidoUseCaseTest
     }
 
     [Fact]
+    public async Task DeveRetornarNull_QuandoObterPedidoPorIdInexistente()
+    {
+        // Arrange
+        var pedidoId = Guid.NewGuid();
+        _pedidoRepository.Setup(x => x.ObterPedidoPorId(pedidoId)).ReturnsAsync((Pedido?)null);
+
+        // Act
+        var resultado = await _consultarPedidoUseCase.ObterPedidoPorId(pedidoId);
+
+        // Assert
+        _pedidoRepository.Verify(x => x.ObterPedidoPorId(pedidoId), Times.Once);
+        resultado.Should().BeNull();
+    }
+
+    [Fact]
     public async Task DeveObterPedidos()
     {
         // Arrange

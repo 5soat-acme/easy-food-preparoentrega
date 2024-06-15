@@ -10,6 +10,7 @@ public class Pedido : Entity, IAggregateRoot
     {
         PedidoCorrelacaoId = pedidoCorrelacaoId;
         Status = StatusPreparo.Recebido;
+        DataCriacao = DateTime.UtcNow;
         _itens = new List<Item>();
     }
 
@@ -23,16 +24,19 @@ public class Pedido : Entity, IAggregateRoot
     public void IniciarPreparo()
     {
         Status = StatusPreparo.EmPreparacao;
+        DataAtualizacao = DateTime.UtcNow;
     }
 
     public void FinalizarPreparo()
     {
         Status = StatusPreparo.Pronto;
+        DataAtualizacao = DateTime.UtcNow;
     }
 
     public void ConfirmarEntrega()
     {
         Status = StatusPreparo.Finalizado;
+        DataAtualizacao = DateTime.UtcNow;
     }
 
     public void AdicionarItem(Item item)
