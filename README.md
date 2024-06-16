@@ -17,5 +17,6 @@ Microsserviço de **Preparo e Entrega** referente ao projeto **[Easy Food](https
 
 ### Executando :running:
 - O repositório conta com um workflow disparado quando houver **push** na branch **main**. O workflow é utilizado para: 
+    - Executar testes com cobertura de código e integrar as informações com SonarCloud.
     - Criar a imagem da API e publicar no **[Docker Hub](https://hub.docker.com/r/5soatacme/easy-food-preparoentrega)**.
     - Executar ```rollout restart``` no deployment do cluster EKS criado pelo repositório **[easy-food-infra](https://github.com/5soat-acme/easy-food-infra)**.
