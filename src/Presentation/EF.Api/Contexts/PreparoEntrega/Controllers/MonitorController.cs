@@ -25,6 +25,6 @@ public class MonitorController : CustomControllerBase
     public async Task<IActionResult> ObterPedidos()
     {
         var pedidos = await _consultarPedidoUseCase.ObterPedidosMonitor();
-        return pedidos is null ? NotFound() : Respond(pedidos);
+        return pedidos is null || !pedidos.Any() ? NotFound() : Respond(pedidos);
     }
 }

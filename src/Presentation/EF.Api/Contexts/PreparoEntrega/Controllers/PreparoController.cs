@@ -51,7 +51,7 @@ public class PreparoController : CustomControllerBase
     public async Task<IActionResult> ObterPedidos([FromQuery] StatusPreparo? status)
     {
         var pedidos = await _consultarPedidoUseCase.ObterPedidos(status);
-        return pedidos is null ? NotFound() : Respond(pedidos);
+        return pedidos is null || !pedidos.Any() ? NotFound() : Respond(pedidos);
     }
 
     /// <summary>
