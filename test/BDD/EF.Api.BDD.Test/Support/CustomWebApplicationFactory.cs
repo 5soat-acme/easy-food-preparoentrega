@@ -5,6 +5,7 @@ using EF.Infra.Commons.Messageria.AWS;
 using EF.PreparoEntrega.Application.Events.Messages;
 using EF.PreparoEntrega.Domain.Models;
 using EF.PreparoEntrega.Infra.Data;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,6 +29,7 @@ public class CustomWebApplicationFactory<TProgram> : WebApplicationFactory<TProg
         builder.ConfigureServices(async services => 
         {
             RemoveDbContext(services);
+            ConfigureAuth(services);
             RemoveHostedServices(services);
             RemoveProducers(services);
             AddDbContextInMemory(services);
@@ -46,6 +48,16 @@ public class CustomWebApplicationFactory<TProgram> : WebApplicationFactory<TProg
         {
             services.Remove(d);
         }
+    }
+
+    private void ConfigureAuth(IServiceCollection services)
+    {
+        services.AddAuthentication(options =>
+        {
+            options.DefaultAuthenticateScheme = "Test";
+            options.DefaultChallengeScheme = "Test";
+        })
+            .AddScheme<AuthenticationSchemeOptions, TestAuthHandler>("Test", options => { });
     }
 
     private void RemoveHostedServices(IServiceCollection services)

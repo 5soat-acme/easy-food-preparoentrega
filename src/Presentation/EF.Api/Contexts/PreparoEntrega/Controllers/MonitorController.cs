@@ -1,10 +1,12 @@
 using EF.PreparoEntrega.Application.DTOs.Responses;
 using EF.PreparoEntrega.Application.UseCases.Interfaces;
 using EF.WebApi.Commons.Controllers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EF.Api.Contexts.PreparoEntrega.Controllers;
 
+[Authorize]
 [Route("api/monitor")]
 public class MonitorController : CustomControllerBase
 {
